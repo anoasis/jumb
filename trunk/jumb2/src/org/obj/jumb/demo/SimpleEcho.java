@@ -14,16 +14,19 @@ public class SimpleEcho {
 			ch.join();
 
 			PersonBean data = new PersonBean("vicdev", 0);
-			for(int i=0; i<30; i++) {
+			data.setName("vicdev-" + System.currentTimeMillis());
+			
+			for(int i=0; i<1000; i++) {
 				data.setAge(i);
 				ch.send(data);
 				
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 			}
 			
 			ch.leave();
 		} catch (Exception e) {
 			log.error(e);
+			e.printStackTrace();
 		}
 		log.info("END");
 	}
