@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="draw" class = "org.obj.jumb.Channel">
+		<property name="host">
+			<value>224.100.100.224</value>
+		</property>
+		<property name="port">
+			<value>6824</value>
+		</property>
+		<property name="messageSize">
+			<value>1024</value>
+		</property>
+	</bean>
+</beans>
