@@ -1,10 +1,16 @@
 package org.obj.jumb.test;
 
-import java.net.*;
-import java.io.*;
-import java.util.*;
-import com.sun.multicast.reliable.transport.*;
-import com.sun.multicast.reliable.transport.tram.*;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.net.InetAddress;
+
+import org.obj.jumb.message.JumbDataMessage;
+
+import com.sun.multicast.reliable.transport.RMStreamSocket;
+import com.sun.multicast.reliable.transport.TransportProfile;
+import com.sun.multicast.reliable.transport.tram.TRAMTransportProfile;
 
 public class ReceiverTestTRAM {
     static String addr = "224.100.100.224";
@@ -32,7 +38,11 @@ public class ReceiverTestTRAM {
         do {
 System.out.println("  startReceiving 1");
         	len = is.read( buffer );
-System.out.println("  startReceiving 2");
+JumbDataMessage jmsg = (JumbDataMessage)new ObjectInputStream(new ByteArrayInputStream(buffer)).readObject();
+org.obj.jumb.demo.PersonBean pb = (org.obj.jumb.demo.PersonBean) jmsg.msg;
+
+System.out.println("  startReceiving 2  age:" + pb.getAge() + " name:" + pb.getName());
+len = 0;
             if ( len > 0 ) {
                 System.out.println( new String(buffer, 0, len));
             }

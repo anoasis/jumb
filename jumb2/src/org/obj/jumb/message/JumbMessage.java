@@ -46,12 +46,12 @@ public class JumbMessage implements Serializable {
 		if(obj == null) {
 			return false;
 		}
-		
+
 		JumbMessage m = (JumbMessage) obj;
 		if(m == this) {
 			return true;
 		}
-		
+
 		return (m.channelId == channelId && equals(srcHost, m.srcHost));
 //				&& m.port == port && equals(srcName, m.srcName) && equals(mcastHost, m.mcastHost));
 	}
