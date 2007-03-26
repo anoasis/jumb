@@ -12,8 +12,6 @@ import javax.swing.JTextField;
 import org.obj.jumb.Channel;
 import org.obj.jumb.ChannelManager;
 import org.obj.jumb.ReceiveHandler;
-import org.obj.jumb.demo.chat.ChatClient;
-import org.obj.jumb.demo.chat.ChatNetworkObject;
 import org.obj.jumb.message.JumbDataMessage;
 import org.obj.jumb.message.JumbMessage;
 
